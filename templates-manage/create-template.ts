@@ -6,7 +6,7 @@ const path=require("path");
 
 export type TpType="vuePage";
 
-const host_path=path.dirname(path.dirname(path.dirname(__dirname)));
+const host_path=path.dirname(__dirname);
 const tp_collection_dir=path.join(host_path,"assets/templates");
 
 export class CreateTemplate extends TemplateManagePlugin{
