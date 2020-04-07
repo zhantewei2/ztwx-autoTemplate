@@ -1,7 +1,7 @@
 import {TemplateBaseData, TemplatePlugin} from "../plugin-template";
 const path=require("path");
 
-const host_path=path.dirname(path.dirname(path.dirname(path.dirname(__dirname))));
+const host_path=path.dirname(path.dirname(__dirname));
 export class VueDirectivePlugin implements TemplatePlugin{
     pluginName:string="@ztwx/vue-directive-template";
     version:string="0.0.1";

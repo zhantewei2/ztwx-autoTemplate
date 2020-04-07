@@ -1,7 +1,7 @@
 import {TemplatePlugin,TemplateBaseData} from "../plugin-template";
 const path=require("path");
 
-const host_path=path.dirname(path.dirname(path.dirname(path.dirname(__dirname))));
+const host_path=path.dirname(path.dirname(__dirname));
 
 export class VuePagePlugin implements  TemplatePlugin{
     pluginName:string="@ztwx/vue-page-template";
