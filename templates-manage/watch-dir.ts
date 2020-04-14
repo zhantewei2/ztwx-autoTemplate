@@ -9,6 +9,7 @@ import {TemplatePlugin} from "./plugin-template";
 import {VueComponentPlugin} from "./basePlugins/vueComponentPlugin";
 import {VueDirectivePlugin} from "./basePlugins/vueDirectivePlugin";
 import {VuePagePlugin} from "./basePlugins/vuePagePlugin";
+import {VueComponentModulePlugin} from "./basePlugins/vueComponentModulePlugin";
 
 const path=require("path");
 const chokidar=require("chokidar");
@@ -25,6 +26,7 @@ export class ManageTempalteWatchDir{
         this.createTemplate.addPlugin(new VuePagePlugin());
         this.createTemplate.addPlugin(new VueDirectivePlugin());
         this.createTemplate.addPlugin(new VueComponentPlugin());
+        this.createTemplate.addPlugin(new VueComponentModulePlugin());
 
     }
     addPlugin(tpPlugin:TemplatePlugin){

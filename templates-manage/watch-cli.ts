@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 import {ManageTempalteWatchDir} from "./watch-dir";
 const path=require("path");
 

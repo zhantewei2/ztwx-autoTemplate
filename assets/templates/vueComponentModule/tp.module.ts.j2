@@ -1,0 +1,9 @@
+import Vue from "vue";
+import ${tp_component_name} from "./${tp_file_name}.vue";
+
+export const ${tp_name} = {
+  name: "${tp_component_name_camelize}",
+  install(v: typeof Vue) {
+    v.component("${tp_component_name_camelize}", ${tp_component_name});
+  }
+};
