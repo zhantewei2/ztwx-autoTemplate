@@ -1,6 +1,6 @@
 {
   "name": "@ztwx/auto-template",
-  "version": "0.0.6",
+  "version": "0.1.0",
   "description": "frontend framework auto create template",
   "main": "lib/watch-dir.js",
   "homepage": "https://github.com/zhantewei2/ztwx-autoTemplate",
