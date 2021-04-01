@@ -16,17 +16,40 @@ const chokidar=require("chokidar");
 const {LoggerFactory}=require("@ztwx/logger");
 const log=(LoggerFactory as any).getLogger(__filename);
 
+export type Config = {
+    installDefault: {
+        page: boolean
+        directive: boolean
+        component: boolean
+        componentModule: boolean
+    }
+}
+
 export class ManageTempalteWatchDir{
     private createTemplate:CreateTemplate=new CreateTemplate();
 
-    constructor() {
+    constructor(config?: Config) {
         /**
          * 注册基础模板
          */
-        this.createTemplate.addPlugin(new VuePagePlugin());
-        this.createTemplate.addPlugin(new VueDirectivePlugin());
-        this.createTemplate.addPlugin(new VueComponentPlugin());
-        this.createTemplate.addPlugin(new VueComponentModulePlugin());
+        const defaultConfig: Config = {
+            installDefault: {
+                page: true,
+                directive: true,
+                component: true,
+                componentModule: true
+            },
+        };
+
+        const templateConfig = {
+            ...defaultConfig.installDefault,
+            ...config?.installDefault,
+        };
+
+        templateConfig.page && this.createTemplate.addPlugin(new VuePagePlugin());
+        templateConfig.directive && this.createTemplate.addPlugin(new VueDirectivePlugin());
+        templateConfig.component && this.createTemplate.addPlugin(new VueComponentPlugin());
+        templateConfig.componentModule && this.createTemplate.addPlugin(new VueComponentModulePlugin());
 
     }
     addPlugin(tpPlugin:TemplatePlugin){
