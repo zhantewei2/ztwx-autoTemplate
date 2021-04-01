@@ -1,7 +1,15 @@
 import { TemplatePlugin } from "./plugin-template";
+export declare type Config = {
+    installDefault: {
+        page: boolean;
+        directive: boolean;
+        component: boolean;
+        componentModule: boolean;
+    };
+};
 export declare class ManageTempalteWatchDir {
     private createTemplate;
-    constructor();
+    constructor(config?: Config);
     addPlugin(tpPlugin: TemplatePlugin): void;
     watch(dirPath: string): void;
     /**
