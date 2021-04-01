@@ -28,29 +28,14 @@ export type Config = {
 export class ManageTempalteWatchDir{
     private createTemplate:CreateTemplate=new CreateTemplate();
 
-    constructor(config?: Config) {
+    constructor({installDefault:{page,directive,component,componentModule}}: Config={installDefault:{page:true,directive:true,component:true,componentModule:true}}) {
         /**
          * 注册基础模板
          */
-        const defaultConfig: Config = {
-            installDefault: {
-                page: true,
-                directive: true,
-                component: true,
-                componentModule: true
-            },
-        };
-
-        const templateConfig = {
-            ...defaultConfig.installDefault,
-            ...config?.installDefault,
-        };
-
-        templateConfig.page && this.createTemplate.addPlugin(new VuePagePlugin());
-        templateConfig.directive && this.createTemplate.addPlugin(new VueDirectivePlugin());
-        templateConfig.component && this.createTemplate.addPlugin(new VueComponentPlugin());
-        templateConfig.componentModule && this.createTemplate.addPlugin(new VueComponentModulePlugin());
-
+        page && this.addPlugin(new VuePagePlugin());
+        directive && this.addPlugin(new VueDirectivePlugin());
+        component && this.addPlugin(new VueComponentPlugin());
+        componentModule && this.addPlugin(new VueComponentModulePlugin());
     }
     addPlugin(tpPlugin:TemplatePlugin){
         this.createTemplate.addPlugin(tpPlugin);
@@ -82,7 +67,7 @@ export class ManageTempalteWatchDir{
         if(!templatePlugin)return log.info("ignore dir :"+ dirPath);
         this.createTemplate.createSimple(templatePlugin,dirPath);
         log.info("created template completed: "+dirPath);
-        log.warn("webstorm: please press CTRL+ALT+T to refresh page")
+        log.warn("webStorm: please press CTRL+ALT+T to refresh page")
     }
 
     /**

@@ -9,7 +9,7 @@ export declare type Config = {
 };
 export declare class ManageTempalteWatchDir {
     private createTemplate;
-    constructor(config?: Config);
+    constructor({ installDefault: { page, directive, component, componentModule } }?: Config);
     addPlugin(tpPlugin: TemplatePlugin): void;
     watch(dirPath: string): void;
     /**

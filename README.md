@@ -24,7 +24,7 @@ import {TemplatePlugin,BaseData,ManageTempalteWatchDir} from "@ztwx/TemplatePlug
 
 class MyTemplatePlugin implements TemplatePlugin{
     pluginName:string="myTemplatePlugin";
-    version:string="0.0.1";
+    version:string="1.0.0";
     // The `yourTemplateDir` will be the template dir path
     templatePath:string=path.join(xxx,"yourTemplateDir");
 
